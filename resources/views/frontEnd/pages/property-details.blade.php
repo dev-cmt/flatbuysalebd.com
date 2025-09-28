@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Home')
 @section('breadcrumb')
     <!-- ============================ Hero Banner  Start================================== -->
@@ -37,7 +37,7 @@
                                 </span>
 
                                 <h3 class="prt-price-fix text-main">
-                                    ${{ number_format($property->price, 2) }}
+                                    ৳{{ number_format($property->price, 2) }}
                                     @if($property->property_status == 'rent')
                                         <sub>/month</sub>
                                     @endif
@@ -785,4 +785,3 @@
     <!-- ============================ Property Detail End ================================== -->
 
 @endsection
-</x-frontend-layout>

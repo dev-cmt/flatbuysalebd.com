@@ -23,6 +23,10 @@ class Category extends Model
         return $this->hasMany(Property::class, 'category_id');
     }
 
+    public function blogPosts()
+    {
+        return $this->hasMany(BlogPost::class);
+    }
 
     protected static function boot()
     {

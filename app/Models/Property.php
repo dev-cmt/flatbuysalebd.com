@@ -4,6 +4,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -42,6 +43,11 @@ class Property extends Model
         'is_featured' => 'boolean',
         'view_count' => 'integer'
     ];
+
+    public function seo(): MorphOne
+    {
+        return $this->morphOne(Seo::class, 'seoable');
+    }
 
     public function category()
     {

@@ -4,7 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+
+	{!! $seo_tags ?? '' !!}
+	{!! $json_ld ?? '' !!}
+    {!! $json_ld ?? '' !!}
 
 	<!-- Custom CSS -->
 	<link href="{{asset('frontEnd')}}/css/styles.css" rel="stylesheet">

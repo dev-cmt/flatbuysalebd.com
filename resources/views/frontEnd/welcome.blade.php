@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Home')
 @section('breadcrumb')
     <!-- ============================ Hero Banner Start ================================== -->
@@ -138,7 +138,7 @@
     <!-- ================================ Category End ======================================== -->
 
     <!-- ================================ All Property ========================================= -->
-    @if (!empty($rentProperties) && $rentProperties->isNotEmpty())
+    {{-- @if (!empty($rentProperties) && $rentProperties->isNotEmpty())
     <section class="gray-simple">
         <div class="container">
 
@@ -170,7 +170,7 @@
 
         </div>
     </section>
-    @endif
+    @endif --}}
     <!-- ============================ All Featured Property ================================== -->
 
     <!-- ============================ Achievement Start ================================== -->
@@ -256,7 +256,7 @@
 
     <!-- ============================ All Property ================================== -->
     @if (!empty($saleProperties) && $saleProperties->isNotEmpty())
-    <section>
+    <section class="gray-simple">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -274,7 +274,7 @@
                 <!-- Single Property Start -->
                 <div class="col-xl-6 col-lg-6 col-md-12 mb-4">
                     <div class="border">
-                        @include('frontEnd.include.__property_list', ['property' => $property])
+                        @include('frontEnd.include.__property_grid', ['property' => $property])
                     </div>
                 </div>
                 <!-- Single Property End -->
@@ -373,6 +373,3 @@
     @endpush
 
 @endsection
-
-
-</x-frontend-layout>

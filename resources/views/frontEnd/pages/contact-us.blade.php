@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Contact Us')
 @section('breadcrumb')
     <!-- ============================ Page Title Start================================== -->
@@ -116,4 +116,3 @@
     </section>
     <!-- ============================ Contact List End ================================== -->
 @endsection
-</x-frontend-layout>

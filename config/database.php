@@ -62,6 +62,27 @@ return [
             ]) : [],
         ],
 
+        // 'mysql' => [
+        //     'driver'         => 'mysql',
+        //     'url'            => null,
+        //     'host'           => '86.107.77.51',       // or your server host/IP
+        //     'port'           => '3306',
+        //     'database'       => 'skytechsolve_idab',  // ← your database name
+        //     'username'       => 'skytechsolve_idab',  // ← your MySQL user
+        //     'password'       => 'Motiur%922083',      // ← your MySQL password
+        //     'unix_socket'    => '',
+        //     'charset'        => 'utf8mb4',
+        //     'collation'      => 'utf8mb4_unicode_ci',
+        //     'prefix'         => '',
+        //     'prefix_indexes' => true,
+        //     'strict'         => true,
+        //     'engine'         => null,
+        //     'options'        => extension_loaded('pdo_mysql') ? array_filter([
+        //         PDO::MYSQL_ATTR_SSL_CA => null,
+        //     ]) : [],
+        // ],
+
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),

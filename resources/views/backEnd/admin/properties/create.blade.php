@@ -186,6 +186,48 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- SEO -->
+                <div class="card custom-card mt-3">
+                    <div class="card-header">
+                        <div class="card-title">SEO Information</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="meta_title" class="form-label">Meta Title</label>
+                            <input type="text" class="form-control" id="meta_title" name="meta_title" value="{{ old('meta_title') }}">
+                            @error('meta_title')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="meta_keywords" class="form-label">Meta Keywords</label>
+                                <input type="text" class="form-control" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords') }}" placeholder="Separate keywords with commas">
+                                @error('meta_keywords')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="meta_image" class="form-label">Meta Image</label>
+                                <input type="file" class="form-control" id="meta_image" name="meta_image" accept="image/*">
+                                @error('meta_image')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="meta_description" class="form-label">Meta Description</label>
+                            <textarea class="form-control" id="meta_description" name="meta_description" rows="3">{{ old('meta_description') }}</textarea>
+                            @error('meta_description')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
             <div class="col-md-4">

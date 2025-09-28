@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Appointment Success')
 @push('css')
 
@@ -37,4 +37,4 @@
     </section>
     @endif
 @endsection
-</x-frontend-layout>
+

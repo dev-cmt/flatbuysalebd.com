@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Home')
 @section('breadcrumb')
     <section class="bg-main position-relative">
@@ -61,7 +61,7 @@
                         @foreach ($properties as $property)
                             <!-- Single Property Start -->
                             <div class="col-md-6 mb-4">
-                                @include('frontEnd.include.__property_list', ['property' => $property])
+                                @include('frontEnd.include.__property_grid', ['property' => $property])
                             </div>
                             <!-- Single Property End -->
                         @endforeach
@@ -81,4 +81,3 @@
     <!-- ============================ All Property ================================== -->
 
 @endsection
-</x-frontend-layout>

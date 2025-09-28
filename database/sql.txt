@@ -1,0 +1,10 @@
+-- =========================
+-- 28/09/2025
+-- =========================
+INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `created_at`, `updated_at`) 
+VALUES 
+(NULL, 'home', 'home', NULL, NULL, NULL),
+(NULL, 'about', 'about', NULL, NULL, NULL),
+(NULL, 'properties', 'properties', NULL, NULL, NULL),
+(NULL, 'contact', 'contact', NULL, NULL, NULL),
+(NULL, 'blogs', 'blogs', NULL, NULL, NULL);

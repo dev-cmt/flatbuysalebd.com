@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Home')
 @section('breadcrumb')
     <!-- ============================ Page Title Start================================== -->
@@ -36,7 +36,7 @@
                     <div class="story-wrap explore-content">
 
                         <h2>{{ $story->title }}</h2>
-                        <p>{{ $story->content }}</p>
+                        <p>{!! $story->content !!}</p>
 
                         @if($story->content_second)
                         <p>{{ $story->content_second }}</p>
@@ -174,4 +174,3 @@
     </section>
     <!-- ================= Our Mission ================= -->
 @endsection
-</x-frontend-layout>

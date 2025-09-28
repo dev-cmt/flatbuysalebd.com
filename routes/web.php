@@ -19,6 +19,9 @@ use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HeroBannerController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\PageSeoController;
 
 //___________________________________// START \\______________________________________________//
 Route::get('/', [HomeController::class, 'welcome'])->name('/');
@@ -40,6 +43,18 @@ Route::post('page/contact', [HomeController::class, 'contactStore'])->name('page
 Route::get('page/application-from', [HomeController::class, 'applicationFrom'])->name('page.application-from');
 Route::post('page/application-submit', [HomeController::class, 'applicationSubmit'])->name('page.application.submit');
 Route::get('page/application-success', [HomeController::class, 'applicationSuccess'])->name('page.application.success');
+
+//______________ BLOGS
+Route::get('page/blogs', [HomeController::class, 'blogs'])->name('page.blogs');
+Route::get('page/blogs-details/{slug}', [HomeController::class, 'blogsDetails'])->name('page.blogs-details');
+Route::get('page/blogs/tag/{slug}', [HomeController::class, 'blogsTag'])->name('page.blogs-tag');
+Route::get('page/blogs-author/{slug}', [HomeController::class, 'blogsDetails'])->name('page.blogs-author');
+
+Route::post('page/blogs/{blog}/comments', [HomeController::class, 'blogsCommentsStore'])->name('page.blogs-comments.store');
+
+Route::get('page/blogs/search', [HomeController::class, 'blogsSearch'])->name('page.blogs.search');
+Route::get('page/blogs/category/{slug}', [HomeController::class, 'blogsCategory'])->name('page.blogs.category');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -63,11 +78,21 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('/categories/update', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
+    // Tags Routes
+    Route::get('tags', [TagController::class, 'index'])->name('tags.index');
+    Route::post('tags/store', [TagController::class, 'store'])->name('tags.store');
+    Route::post('tags/update', [TagController::class, 'update'])->name('tags.update');
+    Route::delete('tags/{id}/delete', [TagController::class, 'destroy'])->name('tags.destroy');
+
+
     // Features
     Route::get('/features', [FeatureController::class, 'index'])->name('features.index');
     Route::post('/features', [FeatureController::class, 'store'])->name('features.store');
     Route::post('/features/update', [FeatureController::class, 'update'])->name('features.update');
     Route::delete('/features/{feature}', [FeatureController::class, 'destroy'])->name('features.destroy');
+
+    // Blog Routes
+    Route::resource('blogs', BlogController::class);
 
     // Properties
     Route::resource('properties', PropertyController::class);
@@ -140,6 +165,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     // Settings
     Route::get('/settings', [SettingController::class, 'index'])->name('setting.index');
     Route::post('/settings-update', [SettingController::class, 'update'])->name('setting.update');
+
+    Route::get('seo-pages',[PageSeoController::class,'index'])->name('settings.seo.index');
+    Route::post('seo-pages/{page}',[PageSeoController::class,'update'])->name('settings.seo.update');
+
 });
 
 require __DIR__.'/auth.php';

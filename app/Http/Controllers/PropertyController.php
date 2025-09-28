@@ -53,6 +53,19 @@ class PropertyController extends Controller
 
         $property = Property::create($propertyData);
 
+        // ✅ Upload SEO OG image
+        if ($request->hasFile('meta_image')) {
+            $data['og_image'] = ImageHelper::uploadImage($request->file('meta_image'), 'uploads/seo');
+        }
+
+        // ✅ Create SEO record
+        $property->seo()->create([
+            'meta_title'       => $propertyData['meta_title'] ?? null,
+            'meta_description' => $propertyData['meta_description'] ?? null,
+            'meta_keywords'    => $propertyData['meta_keywords'] ?? null,
+            'og_image'         => $propertyData['og_image'] ?? null,
+        ]);
+
         if ($request->has('features')) {
             $property->features()->sync($request->features);
         }
@@ -130,6 +143,26 @@ class PropertyController extends Controller
 
         $property->update($propertyData);
         $property->features()->sync($request->features ?? []);
+
+        // ✅ Handle OG image for SEO
+        $currentOgImage = $property->seo->og_image ?? null;
+        if ($request->hasFile('meta_image')) {
+            if ($currentOgImage && file_exists(public_path($currentOgImage))) {
+                unlink(public_path($currentOgImage));
+            }
+            $data['og_image'] = ImageHelper::uploadImage($request->file('meta_image'), 'uploads/seo');
+        } else {
+            $data['og_image'] = $currentOgImage;
+        }
+
+        // ✅ Update or create SEO record
+        $seoData = [
+            'meta_title'       => $data['meta_title'] ?? null,
+            'meta_description' => $data['meta_description'] ?? null,
+            'meta_keywords'    => $data['meta_keywords'] ?? null,
+            'og_image'         => $data['og_image'] ?? null,
+        ];
+        $property->seo ? $property->seo()->update($seoData) : $property->seo()->create($seoData);
 
         // Handle default image
         if ($request->has('is_default')) {

@@ -1,4 +1,4 @@
-<x-frontend-layout>
+@extends('frontEnd.layouts.app')
 @section('title', 'Appointment Form')
 @push('css')
     <!-- Flatpickr CSS -->
@@ -655,4 +655,4 @@
 
 
 @endsection
-</x-frontend-layout>
+

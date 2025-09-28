@@ -48,6 +48,15 @@
                     </a>
                 </li>
 
+                <!-- Tags -->
+                <li class="slide">
+                    <a href="{{ route('admin.tags.index') }}"
+                        class="side-menu__item {{ Request::is('admin/tags*') ? 'active' : '' }}">
+                        <i class="bx bx-purchase-tag-alt side-menu__icon"></i>
+                        <span class="side-menu__label">Tags</span>
+                    </a>
+                </li>
+
                 <!-- Property -->
                 <li class="slide">
                     <a href="{{ route('admin.properties.index') }}"
@@ -60,18 +69,18 @@
                 <!-- Application -->
                 <li class="slide">
                     <a href="{{ route('admin.application.index') }}"
-                        class="side-menu__item {{ Request::is('admin/application*') ? 'active' : '' }}">
+                        class="side-menu__item {{ Request::is('admin/application') ? 'active' : '' }}">
                         <i class="bx bx-file side-menu__icon"></i>
                         <span class="side-menu__label">Applications</span>
                     </a>
                 </li>
 
-                <!-- Application -->
+                <!-- Application Success-->
                 <li class="slide">
                     <a href="{{ route('admin.application-success.index') }}"
                         class="side-menu__item {{ Request::is('admin/application-success*') ? 'active' : '' }}">
                         <i class="bx bx-file side-menu__icon"></i>
-                        <span class="side-menu__label">Applications</span>
+                        <span class="side-menu__label">Applications Message</span>
                     </a>
                 </li>
 
@@ -156,6 +165,15 @@
                     </a>
                 </li>
 
+                <!-- Blogs -->
+                <li class="slide">
+                    <a href="{{ route('admin.blogs.index') }}"
+                        class="side-menu__item {{ Request::is('admin/blogs*') ? 'active' : '' }}">
+                        <i class="bx bx-news side-menu__icon"></i>
+                        <span class="side-menu__label">Blogs & News</span>
+                    </a>
+                </li>
+
                 <!-- Payment Method -->
                 <li class="slide">
                     <a href="{{ route('admin.payment-methods.index') }}"
@@ -173,6 +191,13 @@
                     </a>
                 </li>
 
+                <!-- SEO Settings -->
+                <li class="slide">
+                    <a href="{{ route('admin.settings.seo.index') }}" class="side-menu__item {{ Request::is('admin/settings/seo') ? 'active' : '' }}">
+                        <i class="bx bx-search-alt-2 side-menu__icon"></i>
+                        <span class="side-menu__label">SEO Settings</span>
+                    </a>
+                </li>
 
                 {{-- <!-- Authentication -->
                 <li class="slide has-sub">
